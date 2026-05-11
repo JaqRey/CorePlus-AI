@@ -1,0 +1,85 @@
+{
+  "ffe5d038-fcac-4ab9-af1c-07258e4e1613": [
+    {
+      "id": "fb158c40-8c7f-4613-85d5-bd53be804659",
+      "type": "workout",
+      "details": {
+        "goal": "general fitness",
+        "level": "beginner",
+        "prompt_type": "workout_plan"
+      },
+      "timestamp": "2026-05-09T14:44:42.705318"
+    },
+    {
+      "id": "d1a6d0f3-6c45-47d4-9aa2-76955c77dbd6",
+      "type": "workout",
+      "details": {
+        "goal": "general fitness",
+        "level": "beginner",
+        "prompt_type": "workout_plan"
+      },
+      "timestamp": "2026-05-09T14:47:41.160578"
+    },
+    {
+      "id": "fde6b2c3-c51d-4f4a-8949-f1f4697cad69",
+      "type": "diet",
+      "details": {
+        "goal": "fat loss",
+        "diet_type": "balanced",
+        "prompt_type": "diet_plan"
+      },
+      "timestamp": "2026-05-09T21:32:57.426934"
+    },
+    {
+      "id": "95ceabfa-dcf3-4a84-93d7-91cf66ff175d",
+      "type": "workout",
+      "details": {
+        "goal": "general fitness",
+        "level": "beginner",
+        "prompt_type": "workout_plan"
+      },
+      "timestamp": "2026-05-09T21:37:18.026584"
+    },
+    {
+      "id": "7c0bbc83-a92b-450a-8512-6ef0e7c67ba4",
+      "type": "wellness",
+      "details": {
+        "question_topic": "When should I schedule my rest days?",
+        "prompt_type": "wellness_advice"
+      },
+      "timestamp": "2026-05-09T21:58:23.166342"
+    },
+    {
+      "id": "27083cf5-e89f-4029-8a05-784a3c227698",
+      "type": "cardio",
+      "details": {
+        "exercise": "5k Run",
+        "duration": "45",
+        "calories": "300",
+        "notes": "",
+        "prompt_type": "manual_log"
+      },
+      "timestamp": "2026-05-09T21:59:44.793264"
+    },
+    {
+      "id": "e06421a3-8ba9-4762-ab91-039b1e97ece2",
+      "type": "cardio",
+      "exercise": "5k Run",
+      "duration": 60,
+      "calories": 500,
+      "notes": "",
+      "timestamp": "2026-05-10T09:59:29.206305"
+    }
+  ],
+  "af87b2a5-abb3-4083-a19a-97f9fd5e895d": [
+    {
+      "id": "b88ce059-8932-40ea-b732-5316f4e0b9c8",
+      "type": "cardio",
+      "exercise": "5k Run",
+      "duration": 60,
+      "calories": 600,
+      "notes": "This is my fastest time to reach 5k.",
+      "timestamp": "2026-05-11T23:26:01.085940"
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+/* ── CorePlus AI Print / PDF Stylesheet ────────────────────────────────────
+   Loaded only when window.print() is called.
+   Everything on screen is hidden; only #coreplus-print-area is shown.
+─────────────────────────────────────────────────────────────────── */
+
+@media print {
+
+  /* ── Hide the entire normal UI ── */
+  body > *:not(#aria-print-area) {
+    display: none !important;
+  }
+
+  #aria-print-area {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    color: #111 !important;
+    font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.65;
+  }
+
+  /* ── Page setup ── */
+  @page {
+    size: A4;
+    margin: 20mm 18mm 22mm 18mm;
+  }
+
+  /* ── Branded header ── */
+  .pdf-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid #111;
+    padding-bottom: 10px;
+    margin-bottom: 18px;
+  }
+
+  .pdf-brand {
+    font-family: 'Bebas Neue', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18pt;
+    letter-spacing: 3px;
+    color: #111;
+  }
+
+  .pdf-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    font-size: 9pt;
+    color: #444;
+  }
+
+  /* ── Document title ── */
+  .pdf-title {
+    font-family: 'Bebas Neue', 'Arial Narrow', Arial, sans-serif;
+    font-size: 22pt;
+    letter-spacing: 2px;
+    color: #111;
+    margin: 0 0 16px 0;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  /* ── Body content ── */
+  .pdf-body {
+    color: #111;
+  }
+
+  /* Headings inside output */
+  .pdf-body h1 {
+    font-size: 16pt;
+    font-family: 'Bebas Neue', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 1px;
+    margin: 20px 0 6px;
+    color: #111;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 4px;
+  }
+
+  .pdf-body h2 {
+    font-size: 13pt;
+    font-weight: 700;
+    margin: 16px 0 5px;
+    color: #222;
+  }
+
+  .pdf-body h3 {
+    font-size: 11pt;
+    font-weight: 700;
+    margin: 12px 0 4px;
+    color: #333;
+  }
+
+  /* Paragraphs */
+  .pdf-body p {
+    margin: 0 0 8px;
+    color: #222;
+  }
+
+  /* Lists */
+  .pdf-body ul,
+  .pdf-body ol {
+    margin: 6px 0 10px 20px;
+    padding: 0;
+  }
+
+  .pdf-body li {
+    margin-bottom: 4px;
+    color: #222;
+  }
+
+  /* Numbered list number badges */
+  .pdf-body .li-num {
+    display: inline-block;
+    width: 20px;
+    font-weight: 700;
+    color: #111;
+  }
+
+  /* Bold & italic */
+  .pdf-body strong { font-weight: 700; color: #111; }
+  .pdf-body em     { font-style: italic; color: #333; }
+
+  /* Inline code */
+  .pdf-body code {
+    font-family: 'Courier New', monospace;
+    font-size: 9.5pt;
+    background: #f4f4f4;
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: #333;
+  }
+
+  /* Blockquotes */
+  .pdf-body blockquote {
+    border-left: 3px solid #bbb;
+    margin: 10px 0;
+    padding: 4px 12px;
+    color: #555;
+    font-style: italic;
+  }
+
+  /* Horizontal rules */
+  .pdf-body hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 14px 0;
+  }
+
+  /* Tables */
+  .pdf-body .md-table-wrap {
+    overflow: visible;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 12px 0;
+  }
+  .pdf-body .md-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+  }
+  .pdf-body .md-table th {
+    background: #f5f5f5;
+    padding: 7px 10px;
+    font-size: 8.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #111;
+    border-bottom: 1.5px solid #aaa;
+    text-align: left;
+  }
+  .pdf-body .md-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid #ddd;
+    color: #222;
+    vertical-align: top;
+  }
+  .pdf-body .md-table tr:last-child td { border-bottom: none; }
+  .pdf-body .md-table tbody tr:nth-child(even) td { background: #fafafa; }
+
+  /* ── Footer ── */
+  .pdf-footer {
+    margin-top: 32px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    font-size: 8.5pt;
+    color: #777;
+    text-align: center;
+  }
+
+  /* ── Page break helpers ── */
+  h1, h2, h3 { page-break-after: avoid; }
+  ul, ol, p  { page-break-inside: avoid; }
+}
+
+/* ── Screen: hide the print area when not printing ── */
+@media screen {
+  #aria-print-area {
+    display: none;
+  }
+}

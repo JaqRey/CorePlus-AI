@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CorePlus AI — Create Account</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Space+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/login.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <div class="auth-container register-flow">
+    <div class="brand">
+      <div class="logo-mark">
+        <img src="/static/images/logo.png" alt="ARIA Logo" class="brand-logo" />
+      </div>
+      <div>
+        <h1 class="brand-name">CorePlus AI</h1>
+        <p class="brand-sub">Your AI Fitness Companion</p>
+      </div>
+    </div>
+
+    <div class="auth-card wide-card">
+      <!-- Step indicators -->
+      <div class="steps">
+        <div class="step active" data-step="1">
+          <span class="step-num">1</span><span class="step-label">Account</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step" data-step="2">
+          <span class="step-num">2</span><span class="step-label">Body</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step" data-step="3">
+          <span class="step-num">3</span><span class="step-label">Goals</span>
+        </div>
+      </div>
+
+      <div id="error-msg" class="msg msg-error" style="display:none"></div>
+      <div id="success-msg" class="msg msg-success" style="display:none"></div>
+
+      <!-- Step 1: Account Info -->
+      <div class="form-step active" id="step-1">
+        <h2 class="card-title">Create your account</h2>
+        <p class="card-desc">Start your personalized fitness journey</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="reg-name" placeholder="Alex Cruz" />
+          </div>
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" id="reg-username" placeholder="alexcruz" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="reg-email" placeholder="you@example.com" />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <div class="input-wrap">
+            <input type="password" id="reg-password" placeholder="Min 6 characters" />
+            <button class="eye-btn" onclick="toggleRegPassword()" type="button">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <button class="btn-primary" onclick="nextStep(1)">Continue →</button>
+      </div>
+
+      <!-- Step 2: Body Measurements -->
+      <div class="form-step" id="step-2">
+        <h2 class="card-title">Your body stats</h2>
+        <p class="card-desc">Helps us personalize your fitness plan</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Age</label>
+            <input type="number" id="reg-age" placeholder="25" min="10" max="100" />
+          </div>
+          <div class="form-group">
+            <label>Weight (kg)</label>
+            <input type="number" id="reg-weight" placeholder="70" min="20" max="300" />
+          </div>
+          <div class="form-group">
+            <label>Height (cm)</label>
+            <input type="number" id="reg-height" placeholder="170" min="100" max="250" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Injuries or Limitations</label>
+          <input type="text" id="reg-injuries" placeholder="e.g. bad knees, lower back pain (or 'none')" />
+        </div>
+        <div class="btn-row">
+          <button class="btn-secondary" onclick="prevStep(2)">← Back</button>
+          <button class="btn-primary" onclick="nextStep(2)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Goals & Preferences -->
+      <div class="form-step" id="step-3">
+        <h2 class="card-title">Goals & Preferences</h2>
+        <p class="card-desc">Customize your AI companion's behavior</p>
+
+        <div class="form-group">
+          <label>Primary Goal</label>
+          <select id="reg-goal">
+            <option value="fat loss">Fat Loss</option>
+            <option value="muscle gain">Muscle Gain</option>
+            <option value="maintenance">Maintenance</option>
+            <option value="endurance">Endurance</option>
+            <option value="flexibility">Flexibility & Mobility</option>
+            <option value="general fitness" selected>General Fitness</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Fitness Level</label>
+            <select id="reg-level">
+              <option value="beginner" selected>Beginner</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="advanced">Advanced</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Days per Week</label>
+            <select id="reg-days">
+              <option value="2">2 days</option>
+              <option value="3" selected>3 days</option>
+              <option value="4">4 days</option>
+              <option value="5">5 days</option>
+              <option value="6">6 days</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Dietary Preference</label>
+            <select id="reg-diet">
+              <option value="balanced" selected>Balanced</option>
+              <option value="vegetarian">Vegetarian</option>
+              <option value="vegan">Vegan</option>
+              <option value="keto">Keto</option>
+              <option value="paleo">Paleo</option>
+              <option value="high protein">High Protein</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Equipment Access</label>
+            <select id="reg-equipment">
+              <option value="none">No Equipment</option>
+              <option value="dumbbells" selected>Dumbbells</option>
+              <option value="full gym">Full Gym</option>
+              <option value="resistance bands">Resistance Bands</option>
+              <option value="home gym">Home Gym</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Allergies / Food Restrictions</label>
+          <input type="text" id="reg-allergies" placeholder="e.g. nuts, dairy (or 'none')" />
+        </div>
+
+        <div class="btn-row">
+          <button class="btn-secondary" onclick="prevStep(3)">← Back</button>
+          <button class="btn-primary" id="register-btn" onclick="handleRegister()">
+            <span class="btn-text">Create Account 🚀</span>
+            <span class="btn-loader" style="display:none">Creating…</span>
+          </button>
+        </div>
+      </div>
+
+      <p class="switch-auth">Already have an account? <a href="/login">Sign in</a></p>
+    </div>
+
+    <p class="disclaimer">⚡ Powered by Gemini AI · Not medical advice</p>
+  </div>
+
+  <script src="/static/js/login.js"></script>
+</body>
+</html>

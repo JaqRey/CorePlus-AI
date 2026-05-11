@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CorePlus AI — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Space+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <link rel="stylesheet" href="/static/css/print.css" media="print" />
+</head>
+<body>
+
+  <!-- ══ SIDEBAR ══ -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <img src="/static/images/logo.png" alt="ARIA Logo" class="sidebar-logo" />
+      <span class="brand-text">CorePlus AI</span>
+    </div>
+
+    <div class="nav-links">
+      <a href="/dashboard" class="nav-link active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </a>
+      <a href="#" class="nav-link" onclick="openTab('workout')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4v16M18 4v16M3 8h4M17 8h4M3 16h4M17 16h4"/></svg>
+        Workout Plan
+      </a>
+      <a href="#" class="nav-link" onclick="openTab('diet')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        Diet Plan
+      </a>
+      <a href="#" class="nav-link" onclick="openTab('wellness')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        Wellness
+      </a>
+      <a href="#" class="nav-link" onclick="openTab('chat')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        AI Chat
+      </a>
+      <a href="#" class="nav-link" onclick="openTab('log')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        Log Workout
+      </a>
+      <a href="#" class="nav-link" onclick="openTab('plans')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        My Plans
+      </a>
+      <a href="/analytics" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        Analytics
+      </a>
+      <a href="/settings" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Settings
+      </a>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="user-chip">
+        <div class="avatar" id="user-avatar">?</div>
+        <div class="user-info">
+          <span class="user-name" id="user-name-display">Loading…</span>
+          <span class="user-goal" id="user-goal-display">—</span>
+        </div>
+      </div>
+      <button class="reset-btn" onclick="confirmGlobalReset()" title="Reset all outputs &amp; chat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+          <polyline points="1 4 1 10 7 10"/>
+          <path d="M3.51 15a9 9 0 1 0 .49-4.5"/>
+        </svg>
+      </button>
+      <button class="logout-btn" onclick="logout()" title="Log out">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+          <polyline points="16 17 21 12 16 7"/>
+          <line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE HEADER -->
+  <header class="mobile-header">
+    <button class="hamburger" onclick="toggleSidebar()">☰</button>
+    <span class="mobile-brand">CorePlus AI</span>
+    <div class="mobile-avatar" id="mobile-avatar">?</div>
+  </header>
+
+  <!-- ══ MAIN ══ -->
+  <main class="main-content">
+
+    <!-- ── HOME ── -->
+    <section class="tab active" id="tab-home">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Hello, <span id="greeting-name">Athlete</span> 👋</h1>
+          <p class="page-sub">What are we working on today?</p>
+        </div>
+        <div class="date-badge" id="today-date"></div>
+      </div>
+
+      <div class="quick-cards">
+        <div class="quick-card" onclick="openTab('workout')">
+          <div class="qc-icon">🏋️</div><h3>Workout Plan</h3>
+          <p>Generate a personalized workout routine</p><span class="qc-arrow">→</span>
+        </div>
+        <div class="quick-card" onclick="openTab('diet')">
+          <div class="qc-icon">🥗</div><h3>Diet Plan</h3>
+          <p>Get a tailored nutrition &amp; meal plan</p><span class="qc-arrow">→</span>
+        </div>
+        <div class="quick-card" onclick="openTab('wellness')">
+          <div class="qc-icon">🧘</div><h3>Wellness Advice</h3>
+          <p>Holistic tips for mind and body</p><span class="qc-arrow">→</span>
+        </div>
+        <div class="quick-card" onclick="openTab('chat')">
+          <div class="qc-icon">💬</div><h3>Chat with CORA</h3>
+          <p>Ask me anything about fitness</p><span class="qc-arrow">→</span>
+        </div>
+        <div class="quick-card" onclick="openTab('plans')">
+          <div class="qc-icon">📋</div><h3>My Saved Plans</h3>
+          <p>View and export your saved AI plans</p><span class="qc-arrow">→</span>
+        </div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <span class="stat-num" id="stat-sessions">—</span>
+          <span class="stat-label">Total Sessions</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="stat-hours">—</span>
+          <span class="stat-label">Hours Trained</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="stat-calories">—</span>
+          <span class="stat-label">Calories Burned</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="stat-streak">—</span>
+          <span class="stat-label">Day Streak 🔥</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WORKOUT ── -->
+    <section class="tab" id="tab-workout">
+      <div class="page-header">
+        <div><h1 class="page-title">Workout Plan</h1>
+        <p class="page-sub">AI-generated routine tailored to your goals</p></div>
+      </div>
+      <div class="ai-form card">
+        <h3 class="form-title">Customize Your Plan</h3>
+        <div class="form-row">
+          <div class="form-group"><label>Goal</label>
+            <select id="w-goal">
+              <option value="fat loss">Fat Loss</option>
+              <option value="muscle gain">Muscle Gain</option>
+              <option value="maintenance">Maintenance</option>
+              <option value="endurance">Endurance</option>
+              <option value="general fitness">General Fitness</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Level</label>
+            <select id="w-level">
+              <option value="beginner">Beginner</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="advanced">Advanced</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Days/Week</label>
+            <select id="w-days">
+              <option value="2">2</option><option value="3" selected>3</option>
+              <option value="4">4</option><option value="5">5</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Equipment</label>
+            <select id="w-equipment">
+              <option value="none">No Equipment</option>
+              <option value="dumbbells">Dumbbells</option>
+              <option value="full gym">Full Gym</option>
+              <option value="resistance bands">Resistance Bands</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn-primary" onclick="generateWorkout()">🏋️ Generate Workout Plan</button>
+      </div>
+
+      <div class="ai-output card" id="workout-output" style="display:none">
+        <div class="output-header">
+          <h3>Your Workout Plan</h3>
+          <div class="output-actions">
+            <button class="copy-btn"  onclick="copyOutput('workout-result')">📋 Copy</button>
+            <button class="save-btn"  onclick="savePlan('workout', 'Workout Plan')">💾 Save Plan</button>
+            <button class="pdf-btn"   onclick="exportToPDF('workout-result', 'Personalized Workout Plan')">⬇ PDF</button>
+            <button class="clear-btn" onclick="clearOutput('workout')">✕ Clear</button>
+          </div>
+        </div>
+        <div class="result-text" id="workout-result"></div>
+      </div>
+    </section>
+
+    <!-- ── DIET ── -->
+    <section class="tab" id="tab-diet">
+      <div class="page-header">
+        <div><h1 class="page-title">Diet Plan</h1>
+        <p class="page-sub">Personalized nutrition designed for your goals</p></div>
+      </div>
+      <div class="ai-form card">
+        <h3 class="form-title">Customize Your Plan</h3>
+        <div class="form-row">
+          <div class="form-group"><label>Goal</label>
+            <select id="d-goal">
+              <option value="fat loss">Fat Loss</option>
+              <option value="muscle gain">Muscle Gain</option>
+              <option value="maintenance">Maintenance</option>
+              <option value="endurance">Endurance</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Diet Type</label>
+            <select id="d-diet">
+              <option value="balanced">Balanced</option>
+              <option value="vegetarian">Vegetarian</option>
+              <option value="vegan">Vegan</option>
+              <option value="keto">Keto</option>
+              <option value="high protein">High Protein</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Budget</label>
+            <select id="d-budget">
+              <option value="low">Low Budget</option>
+              <option value="moderate" selected>Moderate</option>
+              <option value="high">High Budget</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn-primary" onclick="generateDiet()">🥗 Generate Diet Plan</button>
+      </div>
+
+      <div class="ai-output card" id="diet-output" style="display:none">
+        <div class="output-header">
+          <h3>Your Diet Plan</h3>
+          <div class="output-actions">
+            <button class="copy-btn" onclick="copyOutput('diet-result')">📋 Copy</button>
+            <button class="save-btn" onclick="savePlan('diet', 'Diet Plan')">💾 Save Plan</button>
+            <button class="pdf-btn"  onclick="exportToPDF('diet-result', 'Personalized Diet Plan')">⬇ PDF</button>
+            <button class="clear-btn" onclick="clearOutput('diet')">✕ Clear</button>
+          </div>
+        </div>
+        <div class="result-text" id="diet-result"></div>
+      </div>
+    </section>
+
+    <!-- ── WELLNESS ── -->
+    <section class="tab" id="tab-wellness">
+      <div class="page-header">
+        <div><h1 class="page-title">Wellness Advice</h1>
+        <p class="page-sub">Holistic guidance for mind, body, and recovery</p></div>
+      </div>
+      <div class="ai-form card">
+        <h3 class="form-title">Tell CorePlus AI What You Need</h3>
+        <div class="form-row">
+          <div class="form-group"><label>Stress Level</label>
+            <select id="well-stress">
+              <option value="low">Low</option>
+              <option value="moderate" selected>Moderate</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Sleep (hrs/night)</label>
+            <input type="number" id="well-sleep" value="7" min="1" max="12" />
+          </div>
+        </div>
+        <div class="form-group"><label>Your Wellness Question</label>
+          <textarea id="well-question" rows="3"
+            placeholder="e.g. How can I recover faster after workouts?"></textarea>
+        </div>
+        <button class="btn-primary" onclick="generateWellness()">🧘 Get Wellness Advice</button>
+      </div>
+
+      <div class="ai-output card" id="wellness-output" style="display:none">
+        <div class="output-header">
+          <h3>Your Wellness Guide</h3>
+          <div class="output-actions">
+            <button class="copy-btn" onclick="copyOutput('wellness-result')">📋 Copy</button>
+            <button class="save-btn" onclick="savePlan('wellness', 'Wellness Advice')">💾 Save Plan</button>
+            <button class="pdf-btn"  onclick="exportToPDF('wellness-result', 'Wellness Advice')">⬇ PDF</button>
+            <button class="clear-btn" onclick="clearOutput('wellness')">✕ Clear</button>
+          </div>
+        </div>
+        <div class="result-text" id="wellness-result"></div>
+      </div>
+    </section>
+
+    <!-- ── CHAT ── -->
+    <section class="tab" id="tab-chat">
+      <div class="page-header">
+        <div><h1 class="page-title">Chat with CORA</h1>
+        <p class="page-sub">Your AI fitness companion, always ready to help</p></div>
+        <button class="btn-secondary small" onclick="clearChat()">Clear Chat</button>
+      </div>
+      <div class="chat-container card">
+        <div class="chat-messages" id="chat-messages">
+          <div class="chat-msg aria">
+            <div class="msg-avatar">A</div>
+            <div class="msg-bubble">Hey there! I'm <strong>CORA</strong> 💪 Ask me anything about fitness, nutrition, or recovery!</div>
+          </div>
+        </div>
+        <div class="chat-input-area">
+          <textarea id="chat-input" placeholder="Ask ARIA anything…" rows="1"
+            onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChat();}"></textarea>
+          <button class="chat-send-btn" onclick="sendChat()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+              <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── LOG WORKOUT ── -->
+    <section class="tab" id="tab-log">
+      <div class="page-header">
+        <div><h1 class="page-title">Log Workout</h1>
+        <p class="page-sub">Track sessions to build your progress analytics</p></div>
+      </div>
+      <div class="ai-form card">
+        <h3 class="form-title">Record a Session</h3>
+        <div class="form-row">
+          <div class="form-group"><label>Activity Type</label>
+            <select id="log-type">
+              <option value="workout">Strength Training</option>
+              <option value="cardio">Cardio</option>
+              <option value="yoga">Yoga / Flexibility</option>
+              <option value="sports">Sports</option>
+              <option value="walk">Walk / Run</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Duration (min)</label>
+            <input type="number" id="log-duration" placeholder="45" min="1" />
+          </div>
+          <div class="form-group"><label>Calories Burned</label>
+            <input type="number" id="log-calories" placeholder="300" min="0" />
+          </div>
+        </div>
+        <div class="form-group"><label>Exercise / Activity Name</label>
+          <input type="text" id="log-exercise" placeholder="e.g. Bench Press, 5K Run, Yoga Flow" />
+        </div>
+        <div class="form-group"><label>Notes</label>
+          <textarea id="log-notes" rows="2" placeholder="How did it feel? Any PRs?"></textarea>
+        </div>
+        <button class="btn-primary" onclick="logWorkout()">💾 Save Session</button>
+        <div id="log-msg" class="msg" style="display:none; margin-top:12px"></div>
+      </div>
+    </section>
+
+    <!-- ── MY PLANS ── -->
+    <section class="tab" id="tab-plans">
+      <div class="page-header">
+        <div><h1 class="page-title">My Saved Plans</h1>
+        <p class="page-sub">All your permanently saved AI-generated plans</p></div>
+        <button class="btn-secondary small" onclick="loadSavedPlans()">↺ Refresh</button>
+      </div>
+      <div id="saved-plans-list">
+        <p class="plans-loading">Loading…</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- LOADING OVERLAY -->
+  <div class="loading-overlay" id="loading-overlay">
+    <div class="loading-box">
+      <div class="spinner"></div>
+      <p id="loading-text">CorePlus AI is thinking…</p>
+    </div>
+  </div>
+
+  <script src="/static/js/main.js"></script>
+</body>
+</html>

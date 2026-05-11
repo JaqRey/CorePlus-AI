@@ -1,0 +1,81 @@
+{
+  "ffe5d038-fcac-4ab9-af1c-07258e4e1613": {
+    "id": "ffe5d038-fcac-4ab9-af1c-07258e4e1613",
+    "username": "jaq",
+    "email": "reyesreyes2903@gmail.com",
+    "password": "$2b$12$MUooqmRlBTzjgdYIgRayouyPqsH3fxa9NTFbkfWiy6l/QUq5cQ3ne",
+    "name": "Jacq Reyes",
+    "profile": {
+      "age": "",
+      "weight": "",
+      "height": "",
+      "goal": "general fitness",
+      "level": "beginner",
+      "diet_type": "balanced",
+      "allergies": "none",
+      "equipment": "dumbbells",
+      "injuries": "none"
+    },
+    "created_at": "2026-05-09T14:42:49.738276"
+  },
+  "e6e820fd-60a8-44be-af97-6526f5c9c2d9": {
+    "id": "e6e820fd-60a8-44be-af97-6526f5c9c2d9",
+    "username": "jaqjaq",
+    "email": "jacqjacq@gmail.com",
+    "password": "$2b$12$ek45m5MGEHLZYbuEKlybieCC9Dp5cBX.Cc9/qcD4L62YgqKoGUEwm",
+    "name": "Jaq Rey",
+    "profile": {
+      "age": "2",
+      "weight": "",
+      "height": "170",
+      "goal": "general fitness",
+      "level": "beginner",
+      "diet_type": "balanced",
+      "allergies": "none",
+      "equipment": "dumbbells",
+      "injuries": "none",
+      "days": "3"
+    },
+    "created_at": "2026-05-11T20:38:19.828502"
+  },
+  "d3b3cb91-4f96-4c90-b99e-dacae1d3fc1a": {
+    "id": "d3b3cb91-4f96-4c90-b99e-dacae1d3fc1a",
+    "username": "JacqReyes",
+    "email": "jacqueline.reyes@gmail.com",
+    "password": "$2b$12$Cmx/kUO1BOolVWJ/.6MvxO8sfZbdT0bJszYNVkqhuvHQ14EgNKfD.",
+    "name": "Jacqueline Reyes",
+    "profile": {
+      "age": "20",
+      "weight": "75",
+      "height": "160",
+      "goal": "general fitness",
+      "level": "beginner",
+      "diet_type": "balanced",
+      "allergies": "none",
+      "equipment": "full gym",
+      "injuries": "none",
+      "days": "3"
+    },
+    "created_at": "2026-05-11T21:50:28.885408"
+  },
+  "af87b2a5-abb3-4083-a19a-97f9fd5e895d": {
+    "id": "af87b2a5-abb3-4083-a19a-97f9fd5e895d",
+    "username": "JDoe",
+    "email": "johndoe@gmail.com",
+    "password": "$2b$12$UunRALNAfGiNDwO1ZUcTseumGIvKSpWItDDpcV0Ed3n1zXjZfrJca",
+    "name": "John Doe",
+    "profile": {
+      "age": "20",
+      "weight": "75",
+      "height": "180",
+      "goal": "general fitness",
+      "level": "beginner",
+      "diet_type": "balanced",
+      "allergies": "none",
+      "equipment": "dumbbells",
+      "injuries": "none",
+      "days": "3"
+    },
+    "created_at": "2026-05-11T23:16:02.130620"
+  }
+}
